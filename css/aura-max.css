@@ -1,0 +1,802 @@
+/* ===============================
+   AURA MAXX – FINAL OVERRIDES
+================================ */
+
+:root {
+    --brand-gold: #D4AF7A;
+    --brand-maroon: #6B1E2D;
+    --brand-navy: #071A2D;
+    --brand-dark: #0C1F33;
+    --brand-white: #ffffff;
+    --header-height: 100px;
+        /* change to 90px or 110px if you see 1-row difference */
+}
+
+/* baseline reset for unexpected outer margins */
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* Header */
+.h1-navigation-area {
+    background-color: var(--brand-navy) !important;
+}
+
+.dustrial-main-menu>li>a {
+    color: var(--brand-gold) !important;
+}
+
+.dustrial-main-menu>li>a:hover,
+.dustrial-main-menu>li.active>a {
+    color: var(--brand-white) !important;
+}
+
+.dustrial-main-menu>li>a::before,
+.dustrial-main-menu>li>a::after {
+    background-color: var(--brand-gold) !important;
+}
+
+.dustrial-stitle-697a107029b94.section-title .section-body .sub-title {
+        color: #7a4264;
+      }
+
+      .vc_custom_1724437557148 {
+        background-color: var(--brand-navy) !important;
+      }
+
+      .vc_custom_1724437557148 h6,h3 {
+      color: #fff;
+      }
+
+/* CTA */
+.get_quote {
+    background-color: var(--brand-maroon) !important;
+    color: #fff !important;
+}
+
+.get_quote:hover {
+    background-color: var(--brand-gold) !important;
+    color: #000 !important;
+}
+
+/* Mobile Menu */
+.mobile-menu,
+.mean-container .mean-nav {
+    background-color: var(--brand-navy) !important;
+}
+
+.mean-container .mean-nav ul li a {
+    color: var(--brand-gold) !important;
+}
+
+.mean-container .mean-nav ul li a:hover {
+    color: #fff !important;
+}
+
+.mean-container a.mean-expand {
+    background: var(--brand-maroon) !important;
+    color: var(--brand-gold) !important;
+}
+
+.mean-container a.mean-expand:hover {
+    background: var(--brand-gold) !important;
+    color: #000 !important;
+}
+
+.mean-container .meanmenu-reveal {
+    color: var(--brand-gold) !important;
+    border: 1px solid var(--brand-gold) !important;
+}
+
+/* ======================================
+   AURA MAXX – TOP BAR FINAL FIX
+====================================== */
+
+/* Top bar background already correct, ensure text & icons */
+.h1-header-top-area,
+.h1-header-top-area * {
+    color: #D4AF7A !important;
+    /* Logo Gold */
+}
+
+/* Icons */
+.h1-header-top-area i {
+    color: #D4AF7A !important;
+    transition: color 0.3s ease;
+}
+
+/* Links */
+.h1-header-top-area a {
+    color: #D4AF7A !important;
+    transition: color 0.3s ease;
+}
+
+/* Hover – NO ORANGE, ONLY PREMIUM GOLD */
+.h1-header-top-area a:hover,
+.h1-header-top-area a:hover i,
+.h1-header-top-area i:hover {
+    color: #E6C18A !important;
+    /* Slight lighter gold */
+}
+
+/* Social icons spacing */
+.h1-social-media ul li a {
+    font-size: 15px;
+}
+
+/* Kill any leftover theme hover background */
+.h1-header-top-area a::before,
+.h1-header-top-area a::after {
+    background: transparent !important;
+}
+
+/* ==========================================
+   AURA MAXX – SUB MENU ORANGE KILL (FINAL)
+========================================== */
+
+/* Submenu background */
+.sub-menu,
+.sub-menu.drop {
+    background-color: var(--brand-navy) !important;
+}
+
+/* Submenu text default */
+.sub-menu li a {
+    color: #ffffff !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+}
+
+/* Submenu hover & focus */
+.sub-menu li a:hover,
+.sub-menu li:hover>a,
+.sub-menu li a:focus {
+    color: var(--brand-white) !important;
+    background-color: var(--brand-maroon) !important;
+}
+
+/* Remove any pseudo-element orange lines */
+.sub-menu li a::before,
+.sub-menu li a::after {
+    background: transparent !important;
+}
+
+/* If theme applies color on li:hover */
+.sub-menu li:hover {
+    background-color: transparent !important;
+}
+
+/* =========================================
+   AURA MAXX – FINAL SLIDER (BLURRED BG)
+   GUARANTEED WORKING VERSION
+========================================= */
+
+/* Base reset */
+.slider-area-wrap,
+.slider-activee,
+.single-slider {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+/* Slider container */
+.single-slider {
+    position: relative;
+    height: calc(100vh - 100px);
+    /* header height */
+    min-height: 520px;
+    overflow: hidden;
+    background: #071A2D;
+}
+
+/* ================= BLUR LAYER ================= */
+/* THIS IS THE KEY */
+.single-slider .slider-blur {
+    position: absolute;
+    inset: -30%;
+    background-image: var(--slide-bg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(45px) brightness(0.9);
+    transform: scale(1.25);
+    z-index: 0;
+}
+
+/* ================= THEME OVERLAY ================= */
+/* Force overlay to exist but stay LIGHT */
+.bg-black-overlay::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    z-index: 1 !important;
+    pointer-events: none;
+}
+
+/* ================= MAIN IMAGE ================= */
+.single-slider .slider-bg {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* no crop */
+    object-position: center;
+    display: block;
+}
+
+/* ================= CONTENT ================= */
+.single-slider .container {
+    position: relative;
+    z-index: 3;
+}
+
+/* Remove gap after slider */
+.slider-area-wrap+section,
+.slider-area-wrap+div {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 991px) {
+    .single-slider {
+        height: 70vh;
+        min-height: 460px;
+    }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 576px) {
+    .single-slider {
+        height: 60vh;
+        min-height: 380px;
+    }
+}
+
+/* ================= SLIDER CONTROLS ================= */
+.slider-buttons a,
+.slick-arrow {
+    background-color: #6B1E2D !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.slider-buttons a:hover,
+.slick-arrow:hover {
+    background-color: #D4AF7A !important;
+    color: #000 !important;
+}
+
+.slider-activee .slick-dots li button {
+    background-color: #6B1E2D !important;
+}
+
+.slider-activee .slick-dots li.slick-active button {
+    background-color: #D4AF7A !important;
+}
+
+.single-slider .slider-blur {
+    filter: blur(45px) brightness(1.3) saturate(2);
+}
+
+
+/* ================= FOOTER – AURA MAXX ================= */
+
+.footer {
+    padding: 80px 0 40px;
+    color: #ccc;
+}
+
+.footer-logo {
+    max-width: 180px;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.footer-address,
+.footer-phone,
+.footer-email {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-address i,
+.footer-phone i,
+.footer-email i {
+    color: #D4AF7A;
+    margin-right: 8px;
+}
+
+.footer a {
+    color: #ccc;
+    transition: 0.3s ease;
+}
+
+.footer a:hover {
+    color: #D4AF7A;
+}
+
+/* Footer titles */
+.footer-nav-title {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-nav-title::after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: #6B1E2D;
+    display: block;
+    margin-top: 8px;
+}
+
+/* Footer links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links li a {
+    font-size: 14px;
+}
+
+/* Social icons */
+.footer-social {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    background: #6B1E2D;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.footer-social a:hover {
+    background: #D4AF7A;
+    color: #000;
+}
+
+/* CTA button */
+.footer-cta-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    background: #6B1E2D;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.footer-cta-btn:hover {
+    background: #D4AF7A;
+    color: #fff !important;
+}
+
+/* Copyright */
+.copyright {
+    background: #0b0b0b;
+    padding: 15px 0;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.copyright a {
+    color: #D4AF7A;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    .footer {
+        padding: 60px 0 30px;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   AURA MAXX – ABSOLUTE OVERRIDE (FINAL)
+========================================= */
+
+/* ---------- INPUTS / SELECT / TEXTAREA ---------- */
+.vc_row.vc_row-fluid .wpcf7-form-control.form-control,
+.vc_row.vc_row-fluid .wpcf7-form-control.form-control.rounded-0,
+.vc_row.vc_row-fluid select.wpcf7-form-control,
+.vc_row.vc_row-fluid textarea.wpcf7-form-control {
+    background-color: #f9f9f9 !important;
+    border: 2px solid #6B1E2D !important;
+    color: #111 !important;
+    padding: 14px 16px !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* ---------- PLACEHOLDER ---------- */
+.vc_row.vc_row-fluid .wpcf7-form-control::placeholder {
+    color: #777 !important;
+}
+
+/* ---------- FOCUS ---------- */
+.vc_row.vc_row-fluid .wpcf7-form-control:focus {
+    border-color: #D4AF7A !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ---------- DROPDOWN OPTION ---------- */
+.vc_row.vc_row-fluid select.wpcf7-form-control option {
+    color: #111;
+}
+
+/* ---------- FAQ TITLE ---------- */
+.vc_row.vc_row-fluid .vc_tta-panel-title a {
+    color: #6B1E2D !important;
+    font-weight: 600 !important;
+}
+
+.vc_row.vc_row-fluid .vc_tta-panel-title a:hover {
+    color: #D4AF7A !important;
+}
+
+/* PLUS ICON */
+.vc_row.vc_row-fluid .vc_tta-controls-icon {
+    color: #6B1E2D !important;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+.vc_row.vc_row-fluid .section-title .sub-title {
+    color: #6B1E2D !important;
+}
+
+
+.vc_row.vc_row-fluid .section-title #testimonial{
+color: #ffffff !important;
+}
+
+
+
+.vc_row.vc_row-fluid .section-title .main-title {
+    color: #D4AF7A !important;
+}
+
+/* ---------- BUTTON (LOCKED) ---------- */
+.vc_row.vc_row-fluid .dustrial-btn {
+    background: #6B1E2D !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.vc_row.vc_row-fluid .dustrial-btn:hover {
+    background: #D4AF7A !important;
+    color: #000 !important;
+}
+
+/* =========================================
+   AURA MAXX – TEXT SELECTION COLOR FIX
+   Removes orange selection completely
+========================================= */
+
+/* Standard browsers */
+::selection {
+    background-color: #6B1E2D;
+    /* brand-maroon */
+    color: #ffffff;
+}
+
+/* Firefox */
+::-moz-selection {
+    background-color: #6B1E2D;
+    /* brand-maroon */
+    color: #ffffff;
+}
+
+/* ===============================
+   FORCE OWL ARROW COLOR – AURA MAXX
+================================ */
+
+/* Kill all theme arrow styles */
+#client-carousel-items87c304c1997ba30434708b2cadf2bf8a .owl-nav * {
+  color: var(--brand-maroon) !important;
+}
+
+/* In case icons are pseudo-elements */
+#client-carousel-items87c304c1997ba30434708b2cadf2bf8a .owl-nav .owl-prev::before,
+#client-carousel-items87c304c1997ba30434708b2cadf2bf8a .owl-nav .owl-next::before {
+  color: var(--brand-maroon) !important;
+  font-size: 28px !important;
+}
+
+/* Background + border */
+#client-carousel-items87c304c1997ba30434708b2cadf2bf8a .owl-nav button {
+  border: 2px solid var(--brand-maroon) !important;
+  background: transparent !important;
+}
+
+/* Hover */
+#client-carousel-items87c304c1997ba30434708b2cadf2bf8a .owl-nav button:hover {
+  background: var(--brand-maroon) !important;
+}
+
+#client-carousel-items87c304c1997ba30434708b2cadf2bf8a .owl-nav button:hover * {
+  color: #fff !important;
+}
+
+.featured-item .dustrial-icon::before {
+  color: var(--brand-maroon) !important;
+}
+
+.featured-item-title {
+  transition: color 0.3s ease;
+}
+
+.featured-item-title:hover {
+  color: var(--brand-maroon) !important;
+}
+
+.company-icon::before{
+    color: var(--brand-maroon);
+}
+
+    .blog-content a,
+      .blog-content p a,
+      .activeColor,
+      .featured-icon i,
+      .single-blog:hover .entry-title,
+      .company-icon i:before,
+      .h2-single-projects-thumbnail a span,
+      .bread_crumb a:hover,
+      .bind_footer .social-media a:hover,
+      .h2-single-projects-item:hover .h2-single-projects-title a,
+      .h2-blog-single-item:hover a.entry-title,
+      .h2-blog-single-item .article-content .entry-meta a:hover,
+      .h2-blog-single-item .entry-meta-footer a:hover,
+      .single-blog .content .entry-meta a:hover,
+      .single-blog .entry-meta-footer a:hover,
+      h6.footer-blog-date.activeColor a,
+      p.logged-in-as a:hover,
+      .blog-comment-area .comment-title small a:hover,
+      span.info-icon,
+      footer.footer .footer-blog-title a:hover,
+      .featured_svg i:before,
+      .h2-single-featured .card:hover .card-title,
+      .single-blog span.icon,
+      .featured-item:hover .featured-item-title,
+      .single-counter h5.activeColor,
+      h6.inspiring-author-role.activeColor,
+      .isotop-projects-filter .mix h5 a:hover,
+      .market-single-items:hover .market-item-details a,
+      .market-single-items i.fa-link,
+      .single_project_widgets a:hover,
+      .ws-input button:hover,
+      #header-bottom i,
+      .h2-header-top-area .h1-single-top-block a:hover,
+      .h3-header-top-area .h1-single-top-block a:hover,
+      #h2-testimonial-items .quotation i.fa.fa-quote-left,
+      .h3-navigation-area .nav-serch-area .header-cart span.cart-badge,
+      .header-cart i,
+      .nav-links a:hover,
+      .bind_footer.footer-2 .footer ul.menu li a:hover,
+      .footer ul.menu li a:hover,
+      .widget_categories ul li a:hover,
+      .widget_archive ul li:hover a,
+      .widget_archive ul li:hover,
+      .widget_archive ul li a:hover,
+      .sidebar-widget a:hover,
+      .widget_categories ul li:hover span,
+      .widget_categories ul li:hover > a,
+      .blog-mata ul li a:hover,
+      .header-cart span.cart-badge,
+      .blog-inner-tag .tags-list a:hover,
+      span.breadcrumb-info a:hover span,
+      .isotop-projects-filter .grid-item h5 a:hover,
+      li.menu-item.dropdown.mini-cart-items a.cart-contents,
+      .cart-dropdown-menu .product-name a,
+      .product-remove a.remove-cart-item,
+      .dropdown-menu.cart-dropdown-menu .mini-view-cart a:hover,
+      .contact-page .contact_address .contact-media a,
+      .section-title .section-body .sub-title {
+        color: var(--brand-gold) !important;
+      }
+
+       .client-carousel-area .owl-prev i.fa,
+      .client-carousel-area .owl-next i.fa {
+        color: var(--brand-maroon) !important;
+      }
+
+      .video-play-button-two,
+      .video-play-button-two::before,
+      a.video-play-button,
+      a.video-play-button::before{
+        background-color: var(--brand-maroon) !important;
+      }
+
+      .scroll-to-top {
+        color: #ffffff;
+        background-color: var(--brand-maroon);
+      }
+
+      button.get_quote_btn,
+      .service-all-btn .btn-default,
+      button.default_button.dustrial-btn,
+      .subscription-form .subscription .btn,
+      .h2-blog-single-item .blog-img .overlay-btn a,
+      .btn {
+        background-color: var(--brand-maroon);
+        border-color: var(--brand-maroon);
+        color: #ffffff !important;
+      }
+
+        .market-single-items:hover .market-item2-icons,
+      .vc_progress_bar .vc_single_bar .vc_bar,
+      .pagination_waper .page-item.active .page-link,
+      .pagination_waper li.page-item .page-link:hover,
+      .inner-mixitup-menus .btn.active,
+      .inner-mixitup-menus .btn:hover,
+      .contact-service,
+      .contact-social-info a:hover,
+      .market-style-3 .shape-style-2,
+      .h3-mixitup-menus .btn.active,
+      .h3-mixitup-menus button:hover,
+      .mixitup-menus,
+      blockquote p,
+      .second-slider-content .intro::after,
+      .footer ul.menu li a:hover:before,
+      .bd-comment-box .content .name a.comment-reply-link:hover,
+      .technical-solutions li::before {
+        background-color: var(--brand-maroon);
+      }
+
+
+          /* Smooth continuous feel */
+          .owl-carousel .owl-stage {
+              display: flex;
+              align-items: stretch;
+            transition-timing-function: linear !important;
+          }
+    
+          .owl-carousel .item-content {
+              background: rgba(255, 255, 255, 0.05);
+              padding: 30px;
+              border-radius: 8px;
+              transition: 0.3s ease;
+          }
+    
+          .owl-carousel .item-content:hover {
+              background: rgba(212, 175, 122, 0.08);
+              transform: translateY(-5px);
+          }
+
+
+                  /* GOLD star icons */
+                  .testimonial-reating i,
+                  .testimonial-reating .fa-star {
+                      color: #D4AF7A !important;
+                  }
+
+                  .get_quote_btn:hover{
+                    background-color: var(--brand-gold) !important;
+                    color: white !important;
+                     transition: 0.5s ease-in-out;
+          cursor: pointer;
+                  }
+
+                  .footer-social a i:hover{
+                    color: #fff;
+                  }
+
+                  .bread_crumb .breadcrumbs-title a:hover span {
+        color: var(--brand-gold) !important;
+         transition: 0.5s ease-in-out;
+          cursor: pointer;
+      }
+
+      .call_to_action_btn:hover{
+         background-color: var(--brand-gold) !important;
+          color: white !important;
+          transition: 0.5s ease-in-out;
+          cursor: pointer;
+      }
+
+   .dustrial-btn:hover{
+        background-color: var(--brand-gold) !important;
+        color: #fff !important;
+      }
+
+      /* ===============================
+   SLICK SLIDER MOBILE FIX
+================================= */
+
+/* Remove any fixed height */
+.single-slider {
+  position: relative;
+  height: auto !important;
+  min-height: auto !important;
+   margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;  
+}
+
+/* Make image fully responsive */
+.slider-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Remove blur layer */
+.slider-blur {
+  display: none !important;
+}
+
+/* Remove container spacing */
+.slider-area-wrap .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Fix slick slide height issue */
+.slick-slide {
+   margin: 0 !important;
+  padding: 0 !important;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: stretch;
+  margin-bottom: 0 !important;
+}
+
+/* ===== MOBILE PERFECT FIX ===== */
+
+@media (max-width: 768px) {
+
+  .single-slider {
+    height: auto !important;
+  }
+
+  .slider-bg {
+    height: auto !important;
+    width: 100%;
+  }
+
+  .slider-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    text-align: left;
+  }
+
+}
